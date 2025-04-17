@@ -7,6 +7,8 @@ class Gameboard {
         this.cruiser = new Ship(3);
         this.submarine = new Ship(3);
         this.destroyer = new Ship(2);
+        //ships currently on board, game is over at 0
+        this.ships = 0;
         this.board = this.createBoard();
     }
 
@@ -23,17 +25,16 @@ class Gameboard {
     }
 
     chooseShip(length, direction) {
-        let newShip = new Ship(length, direction)
+        return new Ship(length, direction)
     }
 
     //just right or down
     addShip(row, column, length, direction) {
-        let newShip = new Ship(length, direction);
-        let startCoord = this.board[row][column];
+        let newShip = this.chooseShip(length, direction);
 
         //is this move valid
         if(newShip.direction == "hor") {
-            if((row + newShip.length) > 10) {
+            if((column + newShip.length) > 10) {
                 return "invalid move";
             } else if((row + newShip.length) <= 10) {
                 //update board
@@ -44,7 +45,7 @@ class Gameboard {
                 }
             } 
         } else if(newShip.direction == "ver") {
-            if((column+ newShip.length) > 10) {
+            if((row + newShip.length) > 10) {
                 return "invalid move";
             } if((row + newShip.length) <= 10) {
                 let add = 0;
@@ -54,6 +55,8 @@ class Gameboard {
                 } 
             }   
         }
+        this.ships ++;
+        return this.board;
         //starting point
         //right [i, j + 1][i, j+2]
     }
@@ -68,8 +71,8 @@ class Gameboard {
 
 let testBoard = new Gameboard;
 console.log(testBoard.board);
-
-let array = [1, 2, 3, 4, 5]
-console.log(array[1])
+console.log(testBoard.addShip(0, 7, 3, "hor"))
+console.log(testBoard.addShip(1, 4, 3, "hor"))
+console.log(testBoard)
 
 export {Gameboard}
