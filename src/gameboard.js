@@ -30,6 +30,7 @@ class Gameboard {
 
     //just right or down
     addShip(row, column, length, direction) {
+        //choose a ship first
         let newShip = this.chooseShip(length, direction);
 
         //is this move valid
@@ -40,7 +41,11 @@ class Gameboard {
                 //update board
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
-                    this.board[row][column + add] = "occupied";
+                    if(this.board[row][column + add] == "occupied") {
+                        return "invalid move"
+                    } else {
+                        this.board[row][column + add] = "occupied";
+                    }
                     add +=1;
                 }
             } 
