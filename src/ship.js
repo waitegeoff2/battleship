@@ -1,7 +1,10 @@
 class Ship {
-    constructor(length){
+    constructor(length, direction){
         this.length = length;
         this.hits = 0;
+        //direction of ship (hor or ver)
+        this.direction = direction;
+        //is it sunk?
         this.sunk = false;
     }
 
