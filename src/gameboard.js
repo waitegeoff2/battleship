@@ -2,11 +2,11 @@ import { Ship } from "./ship";
 
 class Gameboard {
     constructor() {
-        this.carrier = new Ship(5);
-        this.battleship = new Ship(4);
-        this.cruiser = new Ship(3);
-        this.submarine = new Ship(3);
-        this.destroyer = new Ship(2);
+        // this.carrier = new Ship(5);
+        // this.battleship = new Ship(4);
+        // this.cruiser = new Ship(3);
+        // this.submarine = new Ship(3);
+        // this.destroyer = new Ship(2);
         //ships currently on board, game is over at 0
         this.ships = 0;
         this.board = this.createBoard();
