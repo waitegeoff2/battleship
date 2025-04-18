@@ -28,8 +28,6 @@ class Gameboard {
         return new Ship(length, direction)
     }
 
-    //create a ship, STORE IT in the game board array, so it
-    //can be called later by accessing that part of the board
     addShip(row, column, length, direction) {
         //choose a ship first
         let newShip = this.chooseShip(length, direction);
@@ -68,29 +66,45 @@ class Gameboard {
         }
         this.ships ++;
         return newShip;
-        //return a ship here that you can call later
     }
 
-    //takes the coordinates (the GUESS) and checks if space is occupied
-    //TEST this one
+    //use this to check the gameboard to see if there's a ship there
+    //and return it so you can update it
     getShip(row, column) {
-        
+        return this.board[row][column];
     }
 
     receiveAttack(row, column) {
-        if(this.board[row][column] == "occupied") {
-
+        if(this.board[row][column] != null) {
+            //get ship
+            let hitShip = this.getShip(row, column);
+            //hit ship
+            hitShip.hit();
+            //if sunk, remove from board's count
+            if(hitShip.isSunk() == true) {
+                this.ships -= 1;
+            }
         } else {
-            this.board[row][column] = "missed"
+            //update board to show miss
+            this.board[row][column] = "miss"
+        }
+
+        //if all sunk, return a win.
+        if(this.ships == 0) {
+            return "All ships sunk. You win!"
         }
     }
 }
 
 let testBoard = new Gameboard;
-console.log(testBoard.board);
 console.log(testBoard.addShip(0, 7, 3, "hor"))
 console.log(testBoard.addShip(0, 5, 3, "ver"))
 console.log(testBoard.addShip(1, 3, 3, "ver"))
-console.log(testBoard)
+console.log(testBoard.receiveAttack(1,3))
+console.log(testBoard.receiveAttack(1,4))
+console.log(testBoard.receiveAttack(2,3))
+console.log(testBoard.receiveAttack(3,3))
+console.log(testBoard);
+
 
 export {Gameboard}
