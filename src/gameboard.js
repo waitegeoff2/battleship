@@ -28,7 +28,8 @@ class Gameboard {
         return new Ship(length, direction)
     }
 
-    //just right or down
+    //create a ship, STORE IT in the game board array, so it
+    //can be called later by accessing that part of the board
     addShip(row, column, length, direction) {
         //choose a ship first
         let newShip = this.chooseShip(length, direction);
@@ -36,48 +37,60 @@ class Gameboard {
         //is this move valid
         if(newShip.direction == "hor") {
             if((column + newShip.length) > 10) {
-                return "invalid move";
+                return "Off the game board.";
             } else if((row + newShip.length) <= 10) {
                 //update board
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
-                    if(this.board[row][column + add] == "occupied") {
-                        return "invalid move"
+                    //add the SHIP OBJECT in here
+                    if(this.board[row][column + add] != null) {
+                        return "Already a ship there."
                     } else {
-                        this.board[row][column + add] = "occupied";
+                        this.board[row][column + add] = newShip;
                     }
-                    add +=1;
+                    add +=1
                 }
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
-                return "invalid move";
+                return "Off the game board.";
             } if((row + newShip.length) <= 10) {
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
-                    this.board[row + add][column] = "occupied";
-                    add +=1;
+                    if (this.board[row + add][column] != null) {
+                        return "Already a ship there."
+                    } else {
+                        this.board[row + add][column] = newShip;
+                    }
+                    add +=1
                 } 
             }   
         }
         this.ships ++;
-        return this.board;
-        //starting point
-        //right [i, j + 1][i, j+2]
+        return newShip;
+        //return a ship here that you can call later
     }
 
-    placeShip(){
-        //create a new ship
-        //pick starting poing
-        //pick direction
-        //see if possible
+    //takes the coordinates (the GUESS) and checks if space is occupied
+    //TEST this one
+    getShip(row, column) {
+        
+    }
+
+    receiveAttack(row, column) {
+        if(this.board[row][column] == "occupied") {
+
+        } else {
+            this.board[row][column] = "missed"
+        }
     }
 }
 
 let testBoard = new Gameboard;
 console.log(testBoard.board);
 console.log(testBoard.addShip(0, 7, 3, "hor"))
-console.log(testBoard.addShip(1, 4, 3, "hor"))
+console.log(testBoard.addShip(0, 5, 3, "ver"))
+console.log(testBoard.addShip(1, 3, 3, "ver"))
 console.log(testBoard)
 
 export {Gameboard}
