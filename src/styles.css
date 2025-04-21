@@ -27,9 +27,16 @@ body {
 
 .game-area {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.game-board {
+.computer-board {
+  height: 300px;
+  width: 300px;
+  display: flex;  
+}
+
+.player-board {
   height: 300px;
   width: 300px;
   display: flex;  
