@@ -35,14 +35,14 @@ class Gameboard {
         //is this move valid
         if(newShip.direction == "hor") {
             if((column + newShip.length) > 10) {
-                return "Off the game board.";
+                alert("Off the game board.");
             } else if((row + newShip.length) <= 10) {
                 //update board
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
                     //add the SHIP OBJECT in here
                     if(this.board[row][column + add] != null) {
-                        return "Already a ship there."
+                        alert("Already a ship there.")
                     } else {
                         this.board[row][column + add] = newShip;
                     }
@@ -51,12 +51,12 @@ class Gameboard {
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
-                return "Off the game board.";
+                alert("Off the game board.");
             } if((row + newShip.length) <= 10) {
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
                     if (this.board[row + add][column] != null) {
-                        return "Already a ship there."
+                        alert("Already a ship there.");
                     } else {
                         this.board[row + add][column] = newShip;
                     }
@@ -80,6 +80,8 @@ class Gameboard {
             let hitShip = this.getShip(row, column);
             //hit ship
             hitShip.hit();
+            //MARK BOARD WITH A HIT
+            //this.board[row][column] = "HIT"
             //if sunk, remove from board's count
             if(hitShip.isSunk() == true) {
                 this.ships -= 1;
@@ -91,7 +93,7 @@ class Gameboard {
 
         //if all sunk, return a win.
         if(this.ships == 0) {
-            return "All ships sunk. You win!"
+            alert("All ships sunk. You win!");
         }
     }
 }
