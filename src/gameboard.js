@@ -81,7 +81,7 @@ class Gameboard {
             //hit ship
             hitShip.hit();
             //MARK BOARD WITH A HIT
-            //this.board[row][column] = "HIT"
+            this.board[row][column] = "hit"
             //if sunk, remove from board's count
             if(hitShip.isSunk() == true) {
                 this.ships -= 1;

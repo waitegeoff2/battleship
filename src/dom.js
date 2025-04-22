@@ -1,5 +1,6 @@
 import { Gameboard } from "./gameboard";
 import { Player } from "./player";
+import { Ship } from "./ship";
 const mainArea = document.querySelector(".main-area")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
@@ -11,13 +12,7 @@ let testPlayer = new Player("g");
 function setUpPage() {
     gameTitle.textContent = "Place Your Ships on the Board"
 
-    // const gameArea = document.createElement("div");
-    // gameArea.classList.add("game-area");
-    // mainArea.appendChild(gameTitle);
-
-    // const playerBoard = document.createElement("div");
-    // playerBoard.classList.add("player-board");
-    // gameArea.appendChild(playerBoard);
+    //add ship buttons
 
     const carrierBtn = document.createElement("button");
     carrierBtn.classList.add("ship-btn")
@@ -50,6 +45,10 @@ function setUpPage() {
     mainArea.appendChild(newGameBtn);
 }
 
+function gamePage() {
+    //set up page for playing the game
+}
+
 function displayHumanBoard(player) {
     let playerGameboard = player.gameboard.board;
 
@@ -58,10 +57,22 @@ function displayHumanBoard(player) {
         const row = document.createElement("div");
         row.classList.add("game-row"); 
         for(let j=0; j<playerGameboard[i].length; j++) {
-            //append each column to each row
             const column = document.createElement("div");
             column.classList.add("game-column");
-            row.appendChild(column);
+
+            if(playerGameboard[i][j] == null) {
+                column.classList.add("empty-space")
+                row.appendChild(column);
+            } else if(playerGameboard[i][j] == "hit") {
+                column.classList.add("hit-space")
+                row.appendChild(column);
+            } else if(playerGameboard[i][j] == "miss") {
+                column.classList.add("miss-space")
+                row.appendChild(column);
+            } else {
+                column.classList.add("ship-space")
+                row.appendChild(column);
+            }
 
             //record a coordinate here to click later when choosing boats 
             let coord = playerGameboard[i][j]

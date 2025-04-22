@@ -14,7 +14,12 @@ playerComp.human = false
 
 setUpPage();
 
+playerOne.gameboard.addShip(1, 2, 3, "hor");
+
+playerOne.gameboard.receiveAttack(4,2);
+
 displayHumanBoard(playerOne);
+
 
 // shipButton.addEventListener("click", () => {
 //     let row = 3

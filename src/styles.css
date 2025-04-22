@@ -19,6 +19,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40pt;
   padding: 20px;
+  box-shadow: 0px 3px 5px grey;
 }
 
 .main-area {
@@ -50,14 +51,32 @@ body {
 .player-board {
   height: 300px;
   width: 300px;
-  display: flex;  
+  display: flex;
+  
 }
+
+/* GRID SPACES */
 
 .game-column {
   height: 30px;
   width: 30px;
-  background-color: rgb(250, 250, 250);
   border: 1px solid black
+}
+
+.empty-space {
+  background-color: white;
+}
+
+.ship-space {
+  background-color: rgb(170, 170, 170);
+}
+
+.hit-space {
+  background-color: rgb(255, 109, 109);
+}
+
+.miss-space {
+  background-color: rgb(166, 255, 166);
 }
 
 button {
