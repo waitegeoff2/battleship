@@ -12,8 +12,8 @@ body {
 
 .title-bar {
   display: flex;
-  background-color: rgb(93, 125, 255);
-  color: blue;
+  background-color: rgb(56, 96, 252);
+  color: rgb(49, 243, 6);
   justify-content: center;
   align-items: center;
   height: 8vh;
@@ -23,14 +23,14 @@ body {
   text-decoration: underline;
   font-weight: bold;
   text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #0fa,
-    0 0 82px #0fa,
-    0 0 92px #0fa,
-    0 0 102px #0fa,
-    0 0 151px #0fa;
+    0 0 0px #fff,
+    0 0 0px #fff,
+    0 0 0px #fff,
+    0 0 20px #0fa,
+    0 0 20px #0fa,
+    0 0 60px #0fa,
+    0 0 70px #0fa,
+    0 0 80px #0fa;
   padding: 20px;
   box-shadow: 0px 3px 5px grey;
 }
@@ -44,7 +44,7 @@ body {
 .new-game {
   display: flex;
   justify-content: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 25px;
   font-weight: bold;
 }
@@ -99,10 +99,10 @@ body {
 }
 
 button {
-  color: rgb(67, 0, 67);
-  background-color: rgb(93, 255, 225);
-  border: 1px solid purple;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: rgb(54, 255, 9);
+  border: 1px solid black;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   border-radius: 5px;
   padding: 4px;
@@ -118,6 +118,7 @@ button {
   display: flex;
   align-self: center;
   padding: 8px;
+  background-color: rgb(56, 96, 252);
 }
 
 
