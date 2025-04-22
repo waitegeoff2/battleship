@@ -12,12 +12,25 @@ body {
 
 .title-bar {
   display: flex;
-  background-color: rgb(183, 183, 253);
+  background-color: rgb(93, 125, 255);
+  color: blue;
   justify-content: center;
   align-items: center;
   height: 8vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 40pt;
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
   padding: 20px;
   box-shadow: 0px 3px 5px grey;
 }
@@ -31,7 +44,7 @@ body {
 .new-game {
   display: flex;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 25px;
   font-weight: bold;
 }
@@ -86,9 +99,11 @@ body {
 }
 
 button {
-  color: white;
-  background-color: rgb(111, 111, 247);
-  border: 1px solid black;
+  color: rgb(67, 0, 67);
+  background-color: rgb(93, 255, 225);
+  border: 1px solid purple;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
   border-radius: 5px;
   padding: 4px;
 }

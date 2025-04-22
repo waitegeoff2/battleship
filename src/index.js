@@ -58,6 +58,8 @@ function newGameBtnHandler() {
 }
 
 
+
+
 // shipButton.addEventListener("click", () => {
 //     let row = 3
 //     let column = 3
