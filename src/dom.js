@@ -9,33 +9,34 @@ const shipButtons = document.querySelector(".ship-buttons")
 
 let testPlayer = new Player("g");
 
+//to set up the initial page where players can place their ships.
 function setUpPage() {
     gameTitle.textContent = "Place Your Ships on the Board"
 
     //add ship buttons
 
     const carrierBtn = document.createElement("button");
-    carrierBtn.classList.add("ship-btn")
+    carrierBtn.classList.add("ship-btn", "carrier-btn")
     carrierBtn.textContent = "Place carrier (length: 5)"
     shipButtons.appendChild(carrierBtn);
 
     const battleshipBtn = document.createElement("button");
-    battleshipBtn.classList.add("ship-btn")
+    battleshipBtn.classList.add("ship-btn", "battleship-btn")
     battleshipBtn.textContent = "Place battleship (length: 4)"
     shipButtons.appendChild(battleshipBtn);
 
     const cruiserBtn = document.createElement("button");
-    cruiserBtn.classList.add("ship-btn")
+    cruiserBtn.classList.add("ship-btn", "cruiser-btn")
     cruiserBtn.textContent = "Place cruiser (length: 3)"
     shipButtons.appendChild(cruiserBtn);
 
     const submarineBtn = document.createElement("button");
-    submarineBtn.classList.add("ship-btn")
+    submarineBtn.classList.add("ship-btn", "submarine-btn")
     submarineBtn.textContent = "Place submarine (length: 3)"
     shipButtons.appendChild(submarineBtn);
 
     const destroyerBtn = document.createElement("button");
-    destroyerBtn.classList.add("ship-btn")
+    destroyerBtn.classList.add("ship-btn", "destroyer-btn")
     destroyerBtn.textContent = "Place destroyer (length: 2)"
     shipButtons.appendChild(destroyerBtn);
 
@@ -55,7 +56,8 @@ function displayHumanBoard(player) {
     for(let i=0; i<playerGameboard.length; i++) {
         //create a new row for each array
         const row = document.createElement("div");
-        row.classList.add("game-row"); 
+        row.classList.add("game-row");
+
         for(let j=0; j<playerGameboard[i].length; j++) {
             const column = document.createElement("div");
             column.classList.add("game-column");
