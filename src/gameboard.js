@@ -36,6 +36,7 @@ class Gameboard {
         if(newShip.direction == "hor") {
             if((column + newShip.length) > 10) {
                 alert("Off the game board.");
+                return;
             } else if((row + newShip.length) <= 10) {
                 //update board
                 let add = 0;
@@ -43,6 +44,7 @@ class Gameboard {
                     //add the SHIP OBJECT in here
                     if(this.board[row][column + add] != null) {
                         alert("Already a ship there.")
+                        return;
                     } else {
                         this.board[row][column + add] = newShip;
                     }
@@ -52,11 +54,13 @@ class Gameboard {
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
                 alert("Off the game board.");
+                return;
             } if((row + newShip.length) <= 10) {
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
                     if (this.board[row + add][column] != null) {
                         alert("Already a ship there.");
+                        return;
                     } else {
                         this.board[row + add][column] = newShip;
                     }
@@ -75,6 +79,11 @@ class Gameboard {
     }
 
     receiveAttack(row, column) {
+        if((row > 9) || (column > 9)) {
+            alert ("This is off the game board")
+            return;
+        }
+
         if(this.board[row][column] != null) {
             //get ship
             let hitShip = this.getShip(row, column);

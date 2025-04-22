@@ -15,8 +15,9 @@ playerComp.human = false
 setUpPage();
 
 playerOne.gameboard.addShip(1, 2, 3, "hor");
+playerOne.gameboard.addShip(4, 2, 3, "ver");
 
-playerOne.gameboard.receiveAttack(4,2);
+
 
 displayHumanBoard(playerOne);
 

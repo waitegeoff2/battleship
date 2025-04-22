@@ -52,7 +52,13 @@ body {
   height: 300px;
   width: 300px;
   display: flex;
+  flex-direction: column;
   
+}
+
+.game-row {
+  display: flex;
+  width: 300px;
 }
 
 /* GRID SPACES */
