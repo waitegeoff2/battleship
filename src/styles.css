@@ -66,7 +66,8 @@ body {
 .computer-board {
   height: 300px;
   width: 300px;
-  display: flex;  
+  display: flex; 
+  flex-direction: column; 
 }
 
 .player-board {
@@ -104,6 +105,10 @@ body {
 
 .miss-space {
   background-color: rgb(166, 255, 166);
+}
+
+.hover-space {
+  background-color:rgb(196, 196, 196);
 }
 
 button {

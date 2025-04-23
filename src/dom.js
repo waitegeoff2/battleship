@@ -9,43 +9,6 @@ const shipButtons = document.querySelector(".ship-buttons")
 
 let testPlayer = new Player("g");
 
-//to set up the initial page where players can place their ships.
-function setUpPage() {
-    gameTitle.textContent = "Place Your Ships on the Board"
-
-    //add ship buttons
-
-    const carrierBtn = document.createElement("button");
-    carrierBtn.classList.add("ship-btn", "carrier-btn")
-    carrierBtn.textContent = "Place carrier (length: 5)"
-    shipButtons.appendChild(carrierBtn);
-
-    const battleshipBtn = document.createElement("button");
-    battleshipBtn.classList.add("ship-btn", "battleship-btn")
-    battleshipBtn.textContent = "Place battleship (length: 4)"
-    shipButtons.appendChild(battleshipBtn);
-
-    const cruiserBtn = document.createElement("button");
-    cruiserBtn.classList.add("ship-btn", "cruiser-btn")
-    cruiserBtn.textContent = "Place cruiser (length: 3)"
-    shipButtons.appendChild(cruiserBtn);
-
-    const submarineBtn = document.createElement("button");
-    submarineBtn.classList.add("ship-btn", "submarine-btn")
-    submarineBtn.textContent = "Place submarine (length: 3)"
-    shipButtons.appendChild(submarineBtn);
-
-    const destroyerBtn = document.createElement("button");
-    destroyerBtn.classList.add("ship-btn", "destroyer-btn")
-    destroyerBtn.textContent = "Place destroyer (length: 2)"
-    shipButtons.appendChild(destroyerBtn);
-
-    const newGameBtn = document.createElement("button");
-    newGameBtn.classList.add("new-game-button")
-    newGameBtn.textContent = "NEW GAME"
-    mainArea.appendChild(newGameBtn);
-}
-
 function gamePage() {
     //set up page for playing the game
 }
@@ -79,8 +42,18 @@ function displayHumanBoard(player) {
             //record a coordinate here to click later when choosing boats 
             let coord = playerGameboard[i][j]
             //add LISTENERS here for mouseover****
+            //grey it when hovering
+            column.addEventListener("mouseenter", () => {
+                column.classList.add("hover-space");
+            })
+            column.addEventListener("mouseleave", () => {
+                column.classList.remove("hover-space");
+            })
+            //if click, start the board setup
             column.addEventListener('click', () => {
-                column.style.backgroundColor = "grey";
+                var choice = ([i, j]);
+                console.log(choice)
+                setUpShips(choice);
             });
         }
         //append the entire row and loop back to build the next row
@@ -96,28 +69,50 @@ function displayComputerBoard(player) {
         //create a new row for each array
         const row = document.createElement("div");
         row.classList.add("game-row"); 
+
         for(let j=0; j<computerGameboard[i].length; j++) {
-            //IF STATEMENT FOR WHAT PIECE LOOKS LIKE
-            //null
-            //ship is there
-            //hit 
-            //miss
             const column = document.createElement("div");
             column.classList.add("game-column");
-            row.appendChild(column);
+
+            if(computerGameboard[i][j] == null) {
+                column.classList.add("empty-space")
+                row.appendChild(column);
+            } else if(computerGameboard[i][j] == "hit") {
+                column.classList.add("hit-space")
+                row.appendChild(column);
+            } else if(computerGameboard[i][j] == "miss") {
+                column.classList.add("miss-space")
+                row.appendChild(column);
+            } else {
+                //to keep it white even with a ship there
+                column.classList.add("empty-space")
+                row.appendChild(column);
+            }
 
             //record a coordinate here to click later when choosing boats 
             let coord = computerGameboard[i][j]
             //add LISTENERS here for mouseover****
             column.addEventListener('click', () => {
-                column.style.backgroundColor = "grey";
-                let column = coord;
+                var coordArray = ([i, j]);
+                console.log(coordArray)
+                return coordArray;
+                //coords for GUESSING
             });
+            //append the entire row and loop back to build the next row
+            boardCompDisplay.appendChild(row);
+            }
         }
-        //append the entire row and loop back to build the next row
-        boardCompDisplay.appendChild(row);
-    } 
     return computerGameboard;
+}
+
+displayHumanBoard(testPlayer)
+
+function setUpShips(choice) {
+    testPlayer.gameboard.addShip(choice[0], choice[1], 3, "ver")
+    boardHumanDisplay.innerHTML = "";
+    //remove display board
+    //display again
+    displayHumanBoard(testPlayer)
 }
 
 //!!!!!!!!!!!these just need to UPDATE DOM 
@@ -137,4 +132,4 @@ function gameFlow() {
 
 }
 
-export {displayHumanBoard, displayComputerBoard, setUpPage}
+export {displayHumanBoard, displayComputerBoard}
