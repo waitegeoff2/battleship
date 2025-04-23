@@ -5,6 +5,9 @@ import { Player } from "./player";
 import {displayHumanBoard, displayComputerBoard} from "./dom";
 const shipButton = document.querySelector(".test-button")
 const gameTitle = document.querySelector(".new-game")
+const boardHumanDisplay = document.querySelector(".player-board")
+const boardCompDisplay = document.querySelector(".computer-board")
+
 
 
 let playerOne = new Player("Player")
@@ -13,17 +16,20 @@ playerOne.human = true
 let playerComp = new Player("Computer")
 playerComp.human = false
 
-// displayHumanBoard(playerOne);
+displayHumanBoard(playerOne);
 
-let setupShips = 0;
+let introShips = 0;
 let vertical = true;
-let gameInstructions = "Place your carrier ship on the game board";
-gameTitle.textContent = gameInstructions;
+gameTitle.textContent = "Place your carrier ship on the game board";
 
-function setUpBoard(choice) {    
-
-    if(setupShips = 0) {
-        playerOne.gameboard.addShip(choice, 5, "ver")
+export function setUpShips(choice) {    
+    if(introShips == 0) {
+        //ver or hor
+        playerOne.gameboard.addShip(choice[0], choice[1], 5, "ver")
+        boardHumanDisplay.innerHTML = '';
+        displayHumanBoard(playerOne);
+        gameTitle.textContent = "Place your battleship"
+        introShips ++;
     }
 }
 

@@ -1,6 +1,7 @@
 import { Gameboard } from "./gameboard";
 import { Player } from "./player";
 import { Ship } from "./ship";
+import { setUpShips } from ".";
 const mainArea = document.querySelector(".main-area")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
@@ -103,16 +104,6 @@ function displayComputerBoard(player) {
             }
         }
     return computerGameboard;
-}
-
-displayHumanBoard(testPlayer)
-
-function setUpShips(choice) {
-    testPlayer.gameboard.addShip(choice[0], choice[1], 3, "ver")
-    boardHumanDisplay.innerHTML = "";
-    //remove display board
-    //display again
-    displayHumanBoard(testPlayer)
 }
 
 //!!!!!!!!!!!these just need to UPDATE DOM 

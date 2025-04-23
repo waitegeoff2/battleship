@@ -72,6 +72,12 @@ class Gameboard {
         return newShip;
     }
 
+    previewShip(row, column, length, direction) {
+        //same as addship but without boundaries
+        //update the CSS to show greyed out tiles
+        //update to remove it on mouseleave
+    }
+
     //use this to check the gameboard to see if there's a ship there
     //and return it so you can update it
     getShip(row, column) {
