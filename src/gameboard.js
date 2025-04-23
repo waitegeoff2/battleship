@@ -50,6 +50,7 @@ class Gameboard {
                     }
                     add +=1
                 }
+                this.ships ++;
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
@@ -65,10 +66,10 @@ class Gameboard {
                         this.board[row + add][column] = newShip;
                     }
                     add +=1
-                } 
+                }
+                this.ships ++; 
             }   
         }
-        this.ships ++;
         return newShip;
     }
 

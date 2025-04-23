@@ -28,8 +28,11 @@ export function setUpShips(choice) {
         playerOne.gameboard.addShip(choice[0], choice[1], 5, "ver")
         boardHumanDisplay.innerHTML = '';
         displayHumanBoard(playerOne);
-        gameTitle.textContent = "Place your battleship"
-        introShips ++;
+        //if a ship got added
+        if(playerOne.gameboard.ships == 1) {
+            gameTitle.textContent = "Place your battleship"
+            introShips ++;
+        }
     }
 }
 
