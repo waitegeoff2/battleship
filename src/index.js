@@ -26,13 +26,18 @@ let vertical = true;
 gameTitle.textContent = "Place your carrier ship on the game board";
 
 export function setUpShips(choice) {
-    //vertical or horizontal decide up heres 
-    //let shipDir = ver;
-    //if ver or hor => shipdir =
+
+    let shipOrient;
+
+    if(verticalBox.checked) {
+        shipOrient = "ver"
+    } else if(horizontalBox.checked) {
+        shipOrient = "hor"
+    }
     
     if(introShips == 0) {
         //ver or hor
-        playerOne.gameboard.addShip(choice[0], choice[1], 5, "ver")
+        playerOne.gameboard.addShip(choice[0], choice[1], 5, shipOrient)
         boardHumanDisplay.innerHTML = '';
         displayHumanBoard(playerOne);
         //if a ship got added
@@ -42,12 +47,42 @@ export function setUpShips(choice) {
         }
     } else if(introShips == 1) {
         //ver or hor
-        playerOne.gameboard.addShip(choice[0], choice[1], 5, "ver")
+        playerOne.gameboard.addShip(choice[0], choice[1], 4, shipOrient)
         boardHumanDisplay.innerHTML = '';
         displayHumanBoard(playerOne);
         //if a ship got added
-        if(playerOne.gameboard.ships == 1) {
-            gameTitle.textContent = "Place your battleship"
+        if(playerOne.gameboard.ships == 2) {
+            gameTitle.textContent = "Place your cruiser"
+            introShips ++;
+        }
+    } else if(introShips == 2) {
+        //ver or hor
+        playerOne.gameboard.addShip(choice[0], choice[1], 3, shipOrient)
+        boardHumanDisplay.innerHTML = '';
+        displayHumanBoard(playerOne);
+        //if a ship got added
+        if(playerOne.gameboard.ships == 3) {
+            gameTitle.textContent = "Place your submarine"
+            introShips ++;
+        }
+    } else if(introShips == 3) {
+        //ver or hor
+        playerOne.gameboard.addShip(choice[0], choice[1], 3, shipOrient)
+        boardHumanDisplay.innerHTML = '';
+        displayHumanBoard(playerOne);
+        //if a ship got added
+        if(playerOne.gameboard.ships == 4) {
+            gameTitle.textContent = "Place your destroyer"
+            introShips ++;
+        }
+    } else if(introShips == 4) {
+        //ver or hor
+        playerOne.gameboard.addShip(choice[0], choice[1], 2, shipOrient)
+        boardHumanDisplay.innerHTML = '';
+        displayHumanBoard(playerOne);
+        //if a ship got added
+        if(playerOne.gameboard.ships == 5) {
+            gameTitle.textContent = "Ships placed. Press New Game to start."
             introShips ++;
         }
     }
@@ -57,9 +92,14 @@ newGameBtn.addEventListener("click", () => {
     if(playerOne.gameboard.ships != 5) {
         alert("Place all your ships before starting game.")
     } else {
+        //create computer board
         //run the gameflow function
     }
 })
+
+function gameFlow() {
+
+}
 
 
 // playerOne.gameboard.addShip(1,2,3,"hor")
