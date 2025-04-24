@@ -2,7 +2,7 @@ import "./styles.css";
 import { Ship } from "./ship";
 import { Gameboard } from "./gameboard";
 import { Player } from "./player";
-import {displayHumanBoard, displayComputerBoard} from "./dom";
+import {displayHumanBoard, displayComputerBoard, randomColumn, randomDir, randomRow} from "./dom";
 const shipButton = document.querySelector(".test-button")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
@@ -20,9 +20,10 @@ let playerComp = new Player("Computer")
 playerComp.human = false
 
 displayHumanBoard(playerOne);
+displayComputerBoard(playerComp)
 
 let introShips = 0;
-let vertical = true;
+let introComputerShips = 0;
 gameTitle.textContent = "Place your carrier ship on the game board";
 
 export function setUpShips(choice) {
@@ -87,6 +88,42 @@ export function setUpShips(choice) {
         }
     }
 }
+
+function setUpComputerShips() {
+    
+while(playerComp.gameboard.ships < 5) {
+    if(introComputerShips == 0) {
+        playerComp.gameboard.addShip(randomRow(), randomColumn(), 5, randomDir())
+        if(playerComp.gameboard.ships == 1) {
+            introComputerShips ++;
+        }
+    } else if(introComputerShips == 1) {
+        playerComp.gameboard.addShip(randomRow(), randomColumn(), 4, randomDir())
+        if(playerComp.gameboard.ships == 2) {
+            introComputerShips ++;
+        }
+    } else if(introComputerShips == 2) {
+        playerComp.gameboard.addShip(randomRow(), randomColumn(), 3, randomDir())
+        if(playerComp.gameboard.ships == 3) {
+            introComputerShips ++;
+        }
+    } else if(introComputerShips == 3) {
+        playerComp.gameboard.addShip(randomRow(), randomColumn(), 3, randomDir())
+        if(playerComp.gameboard.ships == 4) {
+            introComputerShips ++;
+        }
+    } else if(introComputerShips == 4) {
+        playerComp.gameboard.addShip(randomRow(), randomColumn(), 2, randomDir())
+        boardCompDisplay.innerHTML = '';
+        displayComputerBoard(playerComp);
+        if(playerComp.gameboard.ships == 5) {
+            introComputerShips ++;
+        }
+    }
+}
+}
+
+setUpComputerShips();
 
 newGameBtn.addEventListener("click", () => {
     if(playerOne.gameboard.ships != 5) {

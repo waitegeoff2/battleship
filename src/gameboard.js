@@ -35,7 +35,7 @@ class Gameboard {
         //is this move valid
         if(newShip.direction == "hor") {
             if((column + newShip.length) > 10) {
-                alert("Off the game board.");
+                // alert("Off the game board.");
                 return;
             } else if((row + newShip.length) <= 10) {
                 //update board
@@ -43,7 +43,7 @@ class Gameboard {
                 for(let i = 0; i < newShip.length; i++) {
                     //add the SHIP OBJECT in here
                     if(this.board[row][column + add] != null) {
-                        alert("Already a ship there.")
+                        // alert("Already a ship there.")
                         return;
                     } else {
                         this.board[row][column + add] = newShip;
@@ -54,13 +54,13 @@ class Gameboard {
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
-                alert("Off the game board.");
+                // alert("Off the game board.");
                 return;
             } if((row + newShip.length) <= 10) {
                 let add = 0;
                 for(let i = 0; i < newShip.length; i++) {
                     if (this.board[row + add][column] != null) {
-                        alert("Already a ship there.");
+                        // alert("Already a ship there.");
                         return;
                     } else {
                         this.board[row + add][column] = newShip;

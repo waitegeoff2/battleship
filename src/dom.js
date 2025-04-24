@@ -86,13 +86,19 @@ function displayComputerBoard(player) {
                 row.appendChild(column);
             } else {
                 //to keep it white even with a ship there
-                column.classList.add("empty-space")
+                column.classList.add("ship-space")
                 row.appendChild(column);
             }
 
             //record a coordinate here to click later when choosing boats 
             let coord = computerGameboard[i][j]
             //add LISTENERS here for mouseover****
+            column.addEventListener("mouseenter", () => {
+                column.classList.add("hover-space");
+            })
+            column.addEventListener("mouseleave", () => {
+                column.classList.remove("hover-space");
+            })
             column.addEventListener('click', () => {
                 var coordArray = ([i, j]);
                 console.log(coordArray)
@@ -115,12 +121,56 @@ function humanPlaceShip() {
     //prompts to fill out the addShip(row, column, length, direction) function
 }
 
-function computerPlaceShip() {
+function randomRow() {
+    let min = 0
+    let max = 9
+    let row = Math.floor(Math.random() * (max - min + 1) + min);
+    return row;
+}
 
+function randomColumn() {
+    let min = 0
+    let max = 9
+    let column = Math.floor(Math.random() * (max - min + 1) + min);
+    return column;
+}
+
+function randomDir() {
+    let shipMin = 1
+    let shipMax = 2
+    let shipDir = Math.floor(Math.random() * (shipMax - shipMin + 1) + shipMin);
+    if(shipDir == 1) {
+        shipDir = "ver"
+    } else if(shipDir == 2) {
+        shipDir = "hor"
+    }
+
+    return shipDir;
+}
+
+function computerPickCoordinates() {
+    let min = 0
+    let max = 9
+    let row = Math.floor(Math.random() * (max - min + 1) + min);
+    let column = Math.floor(Math.random() * (max - min + 1) + min);
+    let shipMin = 1
+    let shipMax = 2
+    let shipDir = Math.floor(Math.random() * (shipMax - shipMin + 1) + shipMin);
+    if(shipDir == 1) {
+        shipDir = "ver"
+    } else if(shipDir == 2) {
+        shipDir = "hor"
+    }
+
+
+
+    console.log(row)
+    console.log(column)
+    console.log(shipDir)
 }
 
 function gameFlow() {
 
 }
 
-export {displayHumanBoard, displayComputerBoard}
+export {displayHumanBoard, displayComputerBoard, randomColumn, randomRow, randomDir}
