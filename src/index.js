@@ -114,6 +114,7 @@ while(playerComp.gameboard.ships < 5) {
         }
     } else if(introComputerShips == 4) {
         playerComp.gameboard.addShip(randomRow(), randomColumn(), 2, randomDir())
+        //TURN THIS OFF FOR GAME
         boardCompDisplay.innerHTML = '';
         displayComputerBoard(playerComp);
         if(playerComp.gameboard.ships == 5) {
