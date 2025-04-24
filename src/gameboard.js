@@ -37,16 +37,12 @@ class Gameboard {
             if((column + newShip.length) > 10) {
                 // alert("Off the game board.");
                 return;
-            } else if((row + newShip.length) <= 10) {
+            } else if((column + newShip.length) <= 10) {
                 //update board
                 let add = 0;
                 let thisLength = 0;
-                //checking if entire space is empty
+                //loop to check if entire space is empty
                 for(let i = 0; i < newShip.length; i++) {
-                    //add the SHIP OBJECT in here
-                    //FIX THIS SO IT DOESN'T ADD BEFORE THE SHIP STARTS
-                    //make it check all at once
-                    //IF ALL THIS EQUALS TRUE< THEN YOU ADD THE SHIP
                     if(this.board[row][column + add] != null) {
                         // alert("Already a ship there.")
                         return;
@@ -54,16 +50,14 @@ class Gameboard {
                     } 
                     add +=1
                 }
+                //if entire space is empty, add a ship to the count
+                //and loop through and actually add ship object to board
                 this.ships ++;
                 
                 for(let i = 0; i < newShip.length; i++) {
                     this.board[row][column + thisLength] = newShip;
                     thisLength+=1
                 }
-
-                ////this is where the ships was added, you only get here
-                //if the entire ship got added,
-                //so put logic to add ship here
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
@@ -73,7 +67,6 @@ class Gameboard {
                 let add = 0;
                 let thisLength = 0;
                 for(let i = 0; i < newShip.length; i++) {
-                    //FIX THIS TOO
                     if (this.board[row + add][column] != null) {
                         // alert("Already a ship there.");
                         return;
@@ -81,7 +74,7 @@ class Gameboard {
                     add +=1
                 }
                 this.ships ++;
-                //add the ship after it's clear that there is space 
+
                 for(let i = 0; i < newShip.length; i++) {
                     this.board[row + thisLength][column] = newShip;
                     thisLength+=1

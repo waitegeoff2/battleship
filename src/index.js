@@ -27,7 +27,7 @@ let introComputerShips = 0;
 gameTitle.textContent = "Place your carrier ship on the game board";
 
 export function setUpShips(choice) {
-
+    //something going wrong here
     let shipOrient;
 
     if(verticalBox.checked) {
