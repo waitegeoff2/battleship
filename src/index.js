@@ -22,7 +22,8 @@ let introShips = 0;
 let vertical = true;
 gameTitle.textContent = "Place your carrier ship on the game board";
 
-export function setUpShips(choice) {    
+export function setUpShips(choice) {
+    //vertical or horizontal decide up heres    
     if(introShips == 0) {
         //ver or hor
         playerOne.gameboard.addShip(choice[0], choice[1], 5, "ver")
