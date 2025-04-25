@@ -1,4 +1,4 @@
-import { Ship } from "./ship";
+import { Ship } from "../ship";
 
 //playing around with NPM test to ensure it works
 let hitShip = new Ship(3);

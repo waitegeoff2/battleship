@@ -1,4 +1,4 @@
-import { Gameboard } from "./gameboard";
+import { Gameboard } from "../gameboard";
 
 let testBoard = new Gameboard;
 testBoard.addShip(0, 7, 3, "hor")

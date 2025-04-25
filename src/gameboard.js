@@ -102,6 +102,10 @@ class Gameboard {
             return;
         }
 
+        if(this.board[row][column] == ("hit" || "miss")) {
+            
+        }
+
         if(this.board[row][column] != null) {
             //get ship
             let hitShip = this.getShip(row, column);

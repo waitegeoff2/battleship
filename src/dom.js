@@ -1,19 +1,13 @@
 import { Gameboard } from "./gameboard";
 import { Player } from "./player";
 import { Ship } from "./ship";
-import { setUpShips } from ".";
-import { playerMove } from ".";
+import { setUpShips } from "./gameflow";
+import { playerMove } from "./gameflow";
 const mainArea = document.querySelector(".main-area")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
 const boardCompDisplay = document.querySelector(".computer-board")
 const shipButtons = document.querySelector(".ship-buttons")
-
-let testPlayer = new Player("g");
-
-function gamePage() {
-    //set up page for playing the game
-}
 
 function displayHumanBoard(player) {
     let playerGameboard = player.gameboard.board;
@@ -112,10 +106,6 @@ function displayComputerBoard(player) {
     return computerGameboard;
 }
 
-//!!!!!!!!!!!these just need to UPDATE DOM 
-//update SHIPS function
-    //run that when you click the button
-
 
 function humanPlaceShip() {
     //prompts to fill out the addShip(row, column, length, direction) function
@@ -146,31 +136,6 @@ function randomDir() {
     }
 
     return shipDir;
-}
-
-// function computerPickCoordinates() {
-//     let min = 0
-//     let max = 9
-//     let row = Math.floor(Math.random() * (max - min + 1) + min);
-//     let column = Math.floor(Math.random() * (max - min + 1) + min);
-//     let shipMin = 1
-//     let shipMax = 2
-//     let shipDir = Math.floor(Math.random() * (shipMax - shipMin + 1) + shipMin);
-//     if(shipDir == 1) {
-//         shipDir = "ver"
-//     } else if(shipDir == 2) {
-//         shipDir = "hor"
-//     }
-
-
-
-//     console.log(row)
-//     console.log(column)
-//     console.log(shipDir)
-// }
-
-function gameFlow() {
-
 }
 
 export {displayHumanBoard, displayComputerBoard, randomColumn, randomRow, randomDir}
