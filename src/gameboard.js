@@ -61,7 +61,7 @@ class Gameboard {
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
-                // alert("Off the game board.");
+                // alert("Off the game board.")
                 return;
             } if((row + newShip.length) <= 10) {
                 let add = 0;

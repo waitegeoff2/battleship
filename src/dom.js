@@ -2,6 +2,7 @@ import { Gameboard } from "./gameboard";
 import { Player } from "./player";
 import { Ship } from "./ship";
 import { setUpShips } from ".";
+import { humanPlayerMove } from ".";
 const mainArea = document.querySelector(".main-area")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
@@ -53,7 +54,6 @@ function displayHumanBoard(player) {
             //if click, start the board setup
             column.addEventListener('click', () => {
                 var choice = ([i, j]);
-                console.log(choice)
                 setUpShips(choice);
             });
         }
@@ -100,9 +100,9 @@ function displayComputerBoard(player) {
                 column.classList.remove("hover-space");
             })
             column.addEventListener('click', () => {
-                var coordArray = ([i, j]);
-                console.log(coordArray)
-                return coordArray;
+                var selection = ([i, j]);
+                console.log(selection)
+                humanPlayerMove(selection);
                 //coords for GUESSING
             });
             //append the entire row and loop back to build the next row
@@ -148,26 +148,26 @@ function randomDir() {
     return shipDir;
 }
 
-function computerPickCoordinates() {
-    let min = 0
-    let max = 9
-    let row = Math.floor(Math.random() * (max - min + 1) + min);
-    let column = Math.floor(Math.random() * (max - min + 1) + min);
-    let shipMin = 1
-    let shipMax = 2
-    let shipDir = Math.floor(Math.random() * (shipMax - shipMin + 1) + shipMin);
-    if(shipDir == 1) {
-        shipDir = "ver"
-    } else if(shipDir == 2) {
-        shipDir = "hor"
-    }
+// function computerPickCoordinates() {
+//     let min = 0
+//     let max = 9
+//     let row = Math.floor(Math.random() * (max - min + 1) + min);
+//     let column = Math.floor(Math.random() * (max - min + 1) + min);
+//     let shipMin = 1
+//     let shipMax = 2
+//     let shipDir = Math.floor(Math.random() * (shipMax - shipMin + 1) + shipMin);
+//     if(shipDir == 1) {
+//         shipDir = "ver"
+//     } else if(shipDir == 2) {
+//         shipDir = "hor"
+//     }
 
 
 
-    console.log(row)
-    console.log(column)
-    console.log(shipDir)
-}
+//     console.log(row)
+//     console.log(column)
+//     console.log(shipDir)
+// }
 
 function gameFlow() {
 

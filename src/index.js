@@ -20,7 +20,6 @@ let playerComp = new Player("Computer")
 playerComp.human = false
 
 displayHumanBoard(playerOne);
-displayComputerBoard(playerComp)
 
 let introShips = 0;
 let introComputerShips = 0;
@@ -114,9 +113,6 @@ while(playerComp.gameboard.ships < 5) {
         }
     } else if(introComputerShips == 4) {
         playerComp.gameboard.addShip(randomRow(), randomColumn(), 2, randomDir())
-        //TURN THIS OFF FOR GAME
-        boardCompDisplay.innerHTML = '';
-        displayComputerBoard(playerComp);
         if(playerComp.gameboard.ships == 5) {
             introComputerShips ++;
         }
@@ -127,10 +123,12 @@ while(playerComp.gameboard.ships < 5) {
 setUpComputerShips();
 
 newGameBtn.addEventListener("click", () => {
+
     if(playerOne.gameboard.ships != 5) {
         alert("Place all your ships before starting game.")
     } else {
-        //create computer board
+        displayComputerBoard(playerComp)
+        alert("game can start now")
         //run the gameflow function
     }
 })
@@ -139,6 +137,13 @@ function gameFlow() {
 
 }
 
+export function humanPlayerMove(selection) {
+
+}
+
+function computerMove (row, column) {
+     // = //rand
+}
 
 // playerOne.gameboard.addShip(1,2,3,"hor")
 
