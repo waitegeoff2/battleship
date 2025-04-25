@@ -2,7 +2,7 @@ import { Gameboard } from "./gameboard";
 import { Player } from "./player";
 import { Ship } from "./ship";
 import { setUpShips } from ".";
-import { humanPlayerMove } from ".";
+import { playerMove } from ".";
 const mainArea = document.querySelector(".main-area")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
@@ -102,7 +102,7 @@ function displayComputerBoard(player) {
             column.addEventListener('click', () => {
                 var selection = ([i, j]);
                 console.log(selection)
-                humanPlayerMove(selection);
+                playerMove(selection);
                 //coords for GUESSING
             });
             //append the entire row and loop back to build the next row

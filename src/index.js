@@ -7,6 +7,7 @@ const shipButton = document.querySelector(".test-button")
 const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
 const boardCompDisplay = document.querySelector(".computer-board")
+const pageBtns = document.querySelector(".page-btns")
 const newGameBtn = document.querySelector(".new-game-btn")
 const verticalBox = document.querySelector("#vertical")
 const horizontalBox = document.querySelector("#horizontal")
@@ -19,10 +20,13 @@ playerOne.human = true
 let playerComp = new Player("Computer")
 playerComp.human = false
 
-displayHumanBoard(playerOne);
-
+//initialize turn and gameboard ships
+let turn = 2;
 let introShips = 0;
 let introComputerShips = 0;
+
+displayHumanBoard(playerOne);
+
 gameTitle.textContent = "Place your carrier ship on the game board";
 
 export function setUpShips(choice) {
@@ -127,18 +131,37 @@ newGameBtn.addEventListener("click", () => {
     if(playerOne.gameboard.ships != 5) {
         alert("Place all your ships before starting game.")
     } else {
+        gameTitle.textContent = "Make your guesses on the computer's board."
         displayComputerBoard(playerComp)
-        alert("game can start now")
-        //run the gameflow function
+        newGameBtn.classList.add("hidden")
+        // gameFlow()
     }
 })
 
-function gameFlow() {
+//CLICKING ON THE BOARD MAKES HUMAN CHOICE AND THEN COMPUTER CHOICE
 
-}
 
-export function humanPlayerMove(selection) {
+// function gameFlow() {
+//     if (turn % 2 == 0) {
+//         playerOneUpdate(choice);
+//         gameStatus.textContent = ((playerTwo.name) + "'s turn");
+//      } else {
+//         playerTwoUpdate(choice);
+//         gameStatus.textContent = ((playerOne.name) + "'s turn");
+//      };
+// }
 
+export function playerMove(selection) {
+    let compBoard = playerComp.gameboard;
+    let humanBoard = playerOne.gameboard;
+
+    compBoard.receiveAttack(selection[0], selection[1])
+    boardCompDisplay.innerHTML = ""
+    displayComputerBoard(playerComp)
+
+    humanBoard.receiveAttack(randomRow(), randomColumn())
+    boardHumanDisplay.innerHTML = ""
+    displayHumanBoard(playerOne)
 }
 
 function computerMove (row, column) {
