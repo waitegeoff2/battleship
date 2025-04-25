@@ -1,20 +1,7 @@
 import "./styles.css";
-// import { Ship } from "./ship";
-// import { Gameboard } from "./gameboard";
-// import { Player } from "./player";
-// import {displayHumanBoard, displayComputerBoard, randomColumn, randomDir, randomRow} from "./dom";
 import { setUpShips, setUpComputerShips } from "./gameflow";
-const shipButton = document.querySelector(".test-button")
-const gameTitle = document.querySelector(".new-game")
-const boardHumanDisplay = document.querySelector(".player-board")
-const boardCompDisplay = document.querySelector(".computer-board")
-const pageBtns = document.querySelector(".page-btns")
-const newGameBtn = document.querySelector(".new-game-btn")
-const verticalBox = document.querySelector("#vertical")
-const horizontalBox = document.querySelector("#horizontal")
 
-
-
+//***MOVED TO GAMEFLOW MODULE*****
 // let playerOne = new Player("Player")
 // playerOne.human = true
 

@@ -2,12 +2,6 @@ import { Ship } from "./ship";
 
 class Gameboard {
     constructor() {
-        // this.carrier = new Ship(5);
-        // this.battleship = new Ship(4);
-        // this.cruiser = new Ship(3);
-        // this.submarine = new Ship(3);
-        // this.destroyer = new Ship(2);
-        //ships currently on board, game is over at 0
         this.ships = 0;
         this.board = this.createBoard();
     }
@@ -35,7 +29,6 @@ class Gameboard {
         //is this move valid
         if(newShip.direction == "hor") {
             if((column + newShip.length) > 10) {
-                // alert("Off the game board.");
                 return;
             } else if((column + newShip.length) <= 10) {
                 //update board
@@ -44,7 +37,6 @@ class Gameboard {
                 //loop to check if entire space is empty
                 for(let i = 0; i < newShip.length; i++) {
                     if(this.board[row][column + add] != null) {
-                        // alert("Already a ship there.")
                         return;
                         //move the next line down
                     } 
@@ -61,7 +53,6 @@ class Gameboard {
             } 
         } else if(newShip.direction == "ver") {
             if((row + newShip.length) > 10) {
-                // alert("Off the game board.")
                 return;
             } if((row + newShip.length) <= 10) {
                 let add = 0;
@@ -111,14 +102,12 @@ class Gameboard {
             let hitShip = this.getShip(row, column);
             //hit ship
             hitShip.hit();
-            //MARK BOARD WITH A HIT
             this.board[row][column] = "hit"
             //if sunk, remove from board's count
             if(hitShip.isSunk() == true) {
                 this.ships -= 1;
             }
         } else {
-            //update board to show miss
             this.board[row][column] = "miss"
         }
 
@@ -128,16 +117,5 @@ class Gameboard {
         }
     }
 }
-
-let testBoard = new Gameboard;
-console.log(testBoard.addShip(0, 7, 3, "hor"))
-console.log(testBoard.addShip(0, 5, 3, "ver"))
-console.log(testBoard.addShip(1, 3, 3, "ver"))
-console.log(testBoard.receiveAttack(1,3))
-console.log(testBoard.receiveAttack(1,4))
-console.log(testBoard.receiveAttack(2,3))
-console.log(testBoard.receiveAttack(3,3))
-console.log(testBoard);
-
 
 export {Gameboard}

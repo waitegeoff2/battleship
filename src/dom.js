@@ -1,13 +1,7 @@
-import { Gameboard } from "./gameboard";
-import { Player } from "./player";
-import { Ship } from "./ship";
 import { setUpShips } from "./gameflow";
 import { playerMove } from "./gameflow";
-const mainArea = document.querySelector(".main-area")
-const gameTitle = document.querySelector(".new-game")
 const boardHumanDisplay = document.querySelector(".player-board")
 const boardCompDisplay = document.querySelector(".computer-board")
-const shipButtons = document.querySelector(".ship-buttons")
 
 function displayHumanBoard(player) {
     let playerGameboard = player.gameboard.board;
@@ -106,10 +100,7 @@ function displayComputerBoard(player) {
     return computerGameboard;
 }
 
-
-function humanPlaceShip() {
-    //prompts to fill out the addShip(row, column, length, direction) function
-}
+//random values for computer to make selections
 
 function randomRow() {
     let min = 0
