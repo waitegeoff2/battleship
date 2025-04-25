@@ -6,6 +6,37 @@
     <title>Document</title>
 <script defer src="main.js"></script></head>
 <body>
-    
+    <div class="title-bar">BATTLESHIP</div>
+    <div class="main-area">
+        <div class="new-game"></div>
+        <div class="board-headings">
+            <div class="heading">Your board</div>
+            <div class="heading">Computer's board</div>
+        </div>
+        <div class="game-area">
+            <div class="player-board"></div>
+            <div class="computer-board"></div>
+        </div>
+        <div class="page-btns">
+            <div class="orientation-btns">
+                <fieldset>
+                    <legend>Choose your ship's direction:</legend>
+                
+                    <div>
+                    <input type="radio" id="vertical" name="shiporient" value= "vertical" checked/>
+                    <label for="vertical">Vertical</label>
+                    </div>
+                
+                    <div>
+                    <input type="radio" id="horizontal" name="shiporient" value= "horizontal" />
+                    <label for="horizontal">Horizontal</label>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="new-game-btn">New Game</button>
+        </div>
+        <div class="game-updates"></div>
+    </div>
+    <div class="footer"></div>
 </body>
 </html>
