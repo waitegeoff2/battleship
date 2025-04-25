@@ -94,7 +94,7 @@ class Gameboard {
         }
 
         if(this.board[row][column] == ("hit" || "miss")) {
-            
+          //then computer makes a guess again. ADD THIS  
         }
 
         if(this.board[row][column] != null) {
