@@ -19,10 +19,12 @@ playerComp.human = false
 let introShips = 0;
 let introComputerShips = 0;
 
+//display board and initial instructions
 displayHumanBoard(playerOne);
 
 gameTitle.textContent = "Place your carrier ship on the game board";
 
+//player sets up their ships
 export function setUpShips(choice) {
     //something going wrong here
     let shipOrient;
@@ -120,6 +122,7 @@ while(playerComp.gameboard.ships < 5) {
 
 setUpComputerShips();
 
+//once ships are set up, click new game and the computer board is displayed
 newGameBtn.addEventListener("click", () => {
 
     if(playerOne.gameboard.ships != 5) {
@@ -132,6 +135,7 @@ newGameBtn.addEventListener("click", () => {
     }
 })
 
+//player and computer take turns guessing coordinates
 export function playerMove(selection) {
     let compBoard = playerComp.gameboard;
     let humanBoard = playerOne.gameboard;

@@ -74,7 +74,7 @@ function displayComputerBoard(player) {
                 row.appendChild(column);
             } else {
                 //to keep it white even with a ship there
-                column.classList.add("ship-space")
+                column.classList.add("empty-space")
                 row.appendChild(column);
             }
 
